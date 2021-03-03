@@ -40,6 +40,7 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   end
 
   def bicycle_params
-    params.require(:bicycle).permit(:name, :description, :wheel_size, :rim_color, :saddle_color, :price, :user_id)
+    params.require(:bicycle).permit(:name, :description, :wheel_size, :rim_color, :saddle_color, :price, :image_url,
+                                    :user_id)
   end
 end
