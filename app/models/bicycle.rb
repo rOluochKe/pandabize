@@ -1,4 +1,6 @@
 class Bicycle < ApplicationRecord
+  has_many :order_items
+
   validates :name, :description, :price, :image_url, :user_id, presence: true
   validates :user_id, uniqueness: true
 
