@@ -14,10 +14,10 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   def create
     @bicycle = Bicycle.new(bicycle_params)
 
-    if bicycle.save
-      render json: BicycleSerializer.new(bicycle).serializable_hash, status: :created
+    if @bicycle.save
+      render json: BicycleSerializer.new(@bicycle).serializable_hash, status: :created
     else
-      render json: { errors: bicycle.errors }, status: :unprocessable_entity
+      render json: { errors: @bicycle.errors }, status: :unprocessable_entity
     end
   end
 

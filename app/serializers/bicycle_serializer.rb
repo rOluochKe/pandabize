@@ -1,4 +1,4 @@
-class BicycleSerializer < ActiveModel::Serializer
+class BicycleSerializer
   include FastJsonapi::ObjectSerializer
 
   attributes :name, :description, :wheel_size, :rim_color, :saddle_color, :price, :image_url, :user_id
