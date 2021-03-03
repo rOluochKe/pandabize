@@ -59,14 +59,14 @@ $ rails s -p 3001
 
 ## End Points
 ### Bicycles
-- [GET] Getting all the records -> http://localhost:3000/api/v1/bicycles 
-- [GET] Getting single record -> http://localhost:3000/api/v1/bicycles/1
-- [POST] Create a new single record -> http://localhost:3000/api/v1/bicycles
-- [PUT] Update an existing single record -> http://localhost:3000/api/v1/bicycles/id
-- [DELETE] Delete an existing single record -> http://localhost:3000/api/v1/bicycles/id
+- [GET] Getting all the records -> http://localhost:3001/api/v1/bicycles 
+- [GET] Getting single record -> http://localhost:3001/api/v1/bicycles/1
+- [POST] Create a new single record -> http://localhost:3001/api/v1/bicycles
+- [PUT] Update an existing single record -> http://localhost:3001/api/v1/bicycles/id
+- [DELETE] Delete an existing single record -> http://localhost:3001/api/v1/bicycles/id
 
 ### Orders
-- [GET] Displaying total orders -> http://localhost:3000/api/v1/orders
+- [GET] Displaying total orders -> http://localhost:3001/api/v1/orders
 
 
 ## Designed and developed by
