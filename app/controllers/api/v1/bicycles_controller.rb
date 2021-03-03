@@ -2,28 +2,28 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   before_action :set_bicycle, only: %i[show update destroy]
 
   def index
-    @bicycles = Bicycle.all
+    @bicycles = Bicycle.order(created_at: :desc).page(params[:page])
 
-    render json: @bicycles
+    render json: BicycleSerializer.new(@bicycles).serializable_hash
   end
 
   def show
-    render json: @bicycle
+    render json: BicycleSerializer.new(@bicycle).serializable_hash
   end
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
 
-    if @bicycle.save
-      render json: @bicycle, status: :created
+    if bicycle.save
+      render json: BicycleSerializer.new(bicycle).serializable_hash, status: :created
     else
-      render json: @bicycle.errors, status: :unprocessable_entity
+      render json: { errors: bicycle.errors }, status: :unprocessable_entity
     end
   end
 
   def update
     if @bicycle.update(bicycle_params)
-      render json: @bicycle
+      render json: BicycleSerializer.new(@bicycle).serializable_hash
     else
       render json: @bicycle.errors, status: :unprocessable_entity
     end
@@ -31,6 +31,7 @@ class Api::V1::BicyclesController < Api::V1::ApiController
 
   def destroy
     @bicycle.destroy
+    head 204
   end
 
   private
