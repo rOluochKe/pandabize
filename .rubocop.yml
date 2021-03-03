@@ -1,5 +1,4 @@
 AllCops:
-  SuggestExtensions: false
   Exclude:
     - "db/**/*"
     - "bin/*" 
@@ -39,7 +38,8 @@ Style/AndOr:
 Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: never
+  EnforcedStyle: always
+  Enabled: false
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
