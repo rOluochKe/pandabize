@@ -2,9 +2,8 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   before_action :set_bicycle, only: %i[show update destroy]
 
   def index
-    @bicycles = Bicycle.order(created_at: :desc).page(params[:page])
-
-    render json: BicycleSerializer.new(@bicycles).serializable_hash
+    @bicycles = Bicycle.order(user_id: :ASC).page(params[:page])
+    render json: @bicycles
   end
 
   def show
