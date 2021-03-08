@@ -7,6 +7,9 @@
 - Caching
 - Pagination
 
+## Back End: React JS
+> View in this [REPO](https://github.com/rOluochKe/pandabize-ui)
+
 ## Usage
 
 > Clone the repository to your local machine

@@ -7,22 +7,22 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   end
 
   def show
-    render json: BicycleSerializer.new(@bicycle).serializable_hash
+    render json: @bicycle
   end
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
 
     if @bicycle.save
-      render json: BicycleSerializer.new(@bicycle).serializable_hash, status: :created
+      render json: @bicycle, status: :created
     else
-      render json: { errors: @bicycle.errors }, status: :unprocessable_entity
+      render json: @bicycle.errors, status: :unprocessable_entity
     end
   end
 
   def update
     if @bicycle.update(bicycle_params)
-      render json: BicycleSerializer.new(@bicycle).serializable_hash
+      render json: @bicycle
     else
       render json: @bicycle.errors, status: :unprocessable_entity
     end
@@ -30,7 +30,12 @@ class Api::V1::BicyclesController < Api::V1::ApiController
 
   def destroy
     @bicycle.destroy
-    head 204
+
+    if @bicycle.destroy
+      head :no_content, status: :ok
+    else
+      render json: @bicycle.errors, status: :unprocessable_entity
+    end
   end
 
   private
