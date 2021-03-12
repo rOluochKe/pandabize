@@ -2,7 +2,7 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   before_action :set_bicycle, only: %i[show update destroy]
 
   def index
-    @bicycles = Bicycle.order(user_id: :ASC).page(params[:page])
+    @bicycles = Bicycle.page(params[:page])
     render json: @bicycles
   end
 
@@ -45,7 +45,6 @@ class Api::V1::BicyclesController < Api::V1::ApiController
   end
 
   def bicycle_params
-    params.require(:bicycle).permit(:name, :description, :wheel_size, :rim_color, :saddle_color, :price, :image_url,
-                                    :user_id)
+    params.require(:bicycle).permit(:full_name, :description, :wheel_size, :rim_color, :saddle_color, :price, :image_url)
   end
 end

@@ -7,8 +7,9 @@
 - Caching
 - Pagination
 
-## Back End: React JS
+## Front End: React JS
 > View in this [REPO](https://github.com/rOluochKe/pandabize-ui)
+> [Live Demo]()
 
 ## Usage
 

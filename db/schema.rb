@@ -16,19 +16,13 @@ ActiveRecord::Schema.define(version: 2021_03_03_225648) do
   enable_extension "plpgsql"
 
   create_table "bicycles", force: :cascade do |t|
-    t.string "name"
+    t.string "full_name"
     t.text "description"
     t.integer "wheel_size"
     t.string "rim_color"
     t.string "saddle_color"
     t.decimal "price"
     t.string "image_url"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -3,27 +3,25 @@ require 'rails_helper'
 RSpec.describe Api::V1::BicyclesController, type: :controller do
   let(:valid_attributes) do
     {
-      name: 'John Doe',
+      full_name: 'John Doe',
       description: 'Voluptatem et odit. Error similique voluptas. Autem quia laborum.',
       wheel_size: 18,
       rim_color: 'Grey',
       saddle_color: 'Brown',
       price: 25.43,
       image_url: 'https://robohash.org/my-own-slug.jpg?size=50x50&set=set1',
-      user_id: 1
     }
   end
 
   let(:invalid_attributes) do
     {
-      name: nil,
+      full_name: nil,
       description: nil,
       wheel_size: nil,
       rim_color: nil,
       saddle_color: nil,
       price: nil,
       image_url: nil,
-      user_id: nil
     }
   end
 
@@ -74,14 +72,13 @@ RSpec.describe Api::V1::BicyclesController, type: :controller do
     context 'with valid params' do
       let(:new_attributes) do
         {
-          name: 'Nancy Lucy',
+          full_name: 'Nancy Lucy',
           description: 'Lorem error similique voluptas. Autem quia laborum. Voluptatem et odit.',
           wheel_size: 14,
           rim_color: 'Red',
           saddle_color: 'Black',
           price: 32.13,
           image_url: 'https://robohash.org/my-own-slug.jpg?size=50x50&set=set2',
-          user_id: 2
         }
       end
 
@@ -89,7 +86,7 @@ RSpec.describe Api::V1::BicyclesController, type: :controller do
         bicycle = create(:bicycle)
         put :update, params: { id: bicycle.to_param, bicycle: new_attributes }
         bicycle.reload
-        expect(bicycle.attributes).to include('name' => 'Nancy Lucy')
+        expect(bicycle.attributes).to include('full_name' => 'Nancy Lucy')
       end
 
       it 'returns a 200 status code' do
